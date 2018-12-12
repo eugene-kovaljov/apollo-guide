@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { AdvertisementCard } from '../AdvertisementCard/AdvertisementCard';
-import { AdvertisementCardType } from '../AdvertisementCard/AdvertisementCard.models';
 import styled from 'styled-components';
 
 const AdvertisementGrid = styled.div`
@@ -15,10 +13,6 @@ const AdvertisementGrid = styled.div`
 export class AdvertisementPage extends React.Component {
   render(): React.ReactNode {
     return (<AdvertisementGrid>
-      <AdvertisementCard advertisementType={AdvertisementCardType.GENERAL} title={'Hello'} description={'Hi'} key={'k1'}/>
-      <AdvertisementCard advertisementType={AdvertisementCardType.GENERAL} key={'k1'}/>
-      <AdvertisementCard advertisementType={AdvertisementCardType.GENERAL} key={'k1'}/>
-      <AdvertisementCard advertisementType={AdvertisementCardType.GENERAL} key={'k1'}/>
     </AdvertisementGrid>);
   }
 }

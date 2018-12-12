@@ -1,23 +1,28 @@
 import * as React from 'react';
 import './App.scss';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router';
+import { AdvertisementPage } from './components/AdvertisementPage/AdvertisementPage';
+import Theme from '@pluralsight/ps-design-system-theme/react';
+
+const renderRoutes = () => (
+  <Switch>
+    <Route exact path="/list" component={AdvertisementPage} />
+    {NoMatchRedirect()}
+  </Switch>
+);
+
+const NoMatchRedirect = () => {
+  return <Redirect to="/list" />;
+};
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div id="app-container">
+        <Theme name={Theme.names.light}>
+          <Router basename={'/advertisement'}>{renderRoutes()}</Router>
+        </Theme>
       </div>
     );
   }
